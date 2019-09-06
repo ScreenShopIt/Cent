@@ -174,6 +174,12 @@ public extension Int {
         return CalendarMath(unit: unit, value: self)
     }
 
+    // #HACK
+    // warning: may not work as expected
+    var milliseconds: CalendarMath {
+        return CalendarMath(unit: .second, value: Int(self / 1000))
+    }
+
     var seconds: CalendarMath {
         return mathForUnit(unit: .second)
     }
@@ -233,7 +239,7 @@ public extension Int {
 
     struct CalendarMath {
         private let unit: Calendar.Component
-        private let value: Int
+        public let value: Int
         private var calendar: Calendar {
             return NSCalendar.autoupdatingCurrent
         }
@@ -263,6 +269,12 @@ public extension Int {
 
         public var ago: Date? {
             return before(date: Date())
+        }
+
+        public func later(work: @escaping @convention(block) () -> Swift.Void) {
+          DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.value)) {
+            work()
+          }
         }
     }
 }

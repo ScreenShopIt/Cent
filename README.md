@@ -1,3 +1,5 @@
+# Customized version for screenshop-app
+
 Cent [![Build Status](https://travis-ci.org/ankurp/Cent.svg?branch=master)](https://travis-ci.org/ankurp/Cent) ![CocoaPods](https://img.shields.io/cocoapods/v/Cent.svg)
 ===========
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ankurp/Dollar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
